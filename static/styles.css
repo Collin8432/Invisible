@@ -1,0 +1,44 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #04d9ff;
+  text-align: center;
+  font: monospace;
+  color: #FF10F0;
+  font-weight: bold;
+}
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #FF10F0;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+    
+}
+
+.button:hover {background-color: #04d9ff}
+
+.button:active {
+  background-color: #04d9ff;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.spacer2{
+  aspect-ratio: 900/350;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.layer2 {
+  background-image: url("./haikei2.svg")
+}
+

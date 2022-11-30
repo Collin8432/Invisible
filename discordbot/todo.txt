@@ -1,0 +1,14 @@
+database
+
+features: 
+verification -- img verification 
+banned words 
+help paginators
+giveaway
+admin commands
+possibly a game (tictactoe, maybe something more complicated)
+exp points
+music
+seasonaly themed
+
+-- complete listners
