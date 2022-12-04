@@ -1,7 +1,7 @@
 import disnake
 from disnake.ext import commands
 
-from discordbot.utils.db import insert_into_discordserver, insert_into_muterole, insert_into_bannedwords, rem_from_discordserver
+from discordbot.utils.db import insert_into_discordserver, insert_into_muterole, rem_from_discordserver
 from discordbot.utils.webhooksend import webhooksend
 
 class SetupSelect(disnake.ui.Select):
@@ -78,14 +78,6 @@ class SetupSelect(disnake.ui.Select):
             return message.content
          welcomemessage = await self.bot.wait_for("message", check=check, timeout=500)
          
-         await interaction.send(f"{interaction.author.mention} Enter a list a words seperated by commas that will be banned from the server eg.: incognito, hi, hello")
-         def check(message):
-            return message.content
-         bannedwords = await self.bot.wait_for("message", check=check, timeout=500)
-         words = []
-         for _ in bannedwords.content.split(","):
-            _.strip()
-            words.append(_)
      
          server_webhook=webhook.url
          server_id = interaction.guild.id
@@ -97,7 +89,6 @@ class SetupSelect(disnake.ui.Select):
          
          insert_into_discordserver(server_webhook, server_id, server_membercountvc, server_invite, verification_channel_id, verificaiton_role_id, welcome_message)
          insert_into_muterole(muterole=muterole.id, server_id=interaction.guild.id)
-         insert_into_bannedwords(words=str(words), server_id=interaction.guild.id)
       
       elif self.values[0] == "Verification":
          _verificationrole = await interaction.guild.create_role(name="Verified", permissions=disnake.Permissions(view_channel=True))

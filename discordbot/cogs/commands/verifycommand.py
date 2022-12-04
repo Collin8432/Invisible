@@ -65,6 +65,6 @@ class Verify(commands.Cog):
                timestamp=disnake.utils.utcnow()
          )
          embed.set_footer(
-               text=f"Astral Verification"
+               text=f"Incognito Verification"
             )
          await interaction.send(embed=embed)

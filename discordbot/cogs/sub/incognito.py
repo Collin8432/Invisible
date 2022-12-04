@@ -12,13 +12,13 @@ class Incognito(commands.Cog):
       self.bot = bot
    
    @commands.slash_command(
-      name="astral",
+      name="incognito",
       description="uptime"
    )
-   async def astral(self, interaction):
+   async def incognito(self, interaction):
       pass
    
-   @astral.sub_command(
+   @incognito.sub_command(
       name="uptime",
       description="displays the bot uptime",
    )

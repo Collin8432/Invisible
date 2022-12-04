@@ -8,6 +8,5 @@ class On_guild_channel_update(commands.Cog):
          self.bot = bot
          
       @commands.Cog.listener() 
-      async def on_guild_channel_update(self):
-         ...
-                        
+      async def on_guild_channel_update(self, before, after):
+         ...                        
