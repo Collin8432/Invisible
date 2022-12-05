@@ -1,7 +1,7 @@
 import disnake
 from disnake.ext import commands
 
-from discordbot.utils.color import color
+from utils.color import color
 
 class On_reaction_add(commands.Cog):
       def __init__(self, bot: commands.Bot):

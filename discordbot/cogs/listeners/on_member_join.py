@@ -1,9 +1,9 @@
 import disnake
 from disnake.ext import commands
 
-from discordbot.utils.color import color
-from discordbot.utils.webhooksend import webhooksend
-from discordbot.utils.db import *
+from utils.color import color
+from utils.webhooksend import webhooksend
+from utils.db import *
 
 class On_member_join(commands.Cog):
       def __init__(self, bot: commands.Bot):

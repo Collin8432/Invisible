@@ -8,9 +8,9 @@ from PIL import ImageFont
 import random
 import asyncio
 
-from discordbot.utils.webhooksend import webhooksend
-from discordbot.utils.color import color
-from discordbot.utils.db import *
+from utils.webhooksend import webhooksend
+from utils.color import color
+from utils.db import *
 
 
 class Verify(commands.Cog):

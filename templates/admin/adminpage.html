@@ -28,11 +28,12 @@
          <p>Permissions: {{perms}}</p>
          <p>Features: {{features}}</p>
          <p>Database Information: {{name}}</p>
-         <p>Database Webhook: {{database.1}}</p>
-         <p>Database Invite Link: {{database.3}}</p>
-         <p>Database Verification Channel ID: {{database.4}}</p>
-         <p>Database Verification Role ID: {{database.5}}</p>
-         <p>Database Welcome Message: {{database.6}}</p>
+         <p>Database Webhook: {{database["server_webhook"]}}</p>
+         <p>Database Invite Link: {{database["server_invite"]}}</p>
+         <p>Database Verification Channel ID: {{database["verification_channel_id"]}}</p>
+         <p>Database Verification Role ID: {{database["verification_role_id"]}}</p>
+         <p>Database Member Count Voice Channel ID: {{ database["server_membercountvc"]}}</p>
+         <p>Database Welcome Message: {{database["welcome_message"]}}</p>
       </div>
 
    </div>

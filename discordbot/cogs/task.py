@@ -4,7 +4,7 @@ from disnake.ext import tasks, commands
 
 import random
 
-from discordbot.utils.db import *
+from utils.db import *
 
 
 class Tasks(commands.Cog):

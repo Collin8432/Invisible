@@ -1,7 +1,7 @@
 import disnake
 from disnake.ext import commands
 
-from discordbot.utils.color import color
+from utils.color import color
 
 import logging
 logger = logging.getLogger(__name__)
@@ -23,6 +23,7 @@ class On_slash_command_error(commands.Cog):
          msg = f"Slash command `{interaction.data.name}` failed due to `{error}`"
          logger.error(msg, exc_info=True)
 
+         print(fancy_traceback(error))
          embed = disnake.Embed(
                title=msg,
                description=fancy_traceback(error),
