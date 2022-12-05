@@ -120,7 +120,7 @@ def adminpage():
 if __name__ == "__main__":
    loadcogs()
    print("Starting up {} shard{}...".format(bot.shard_count,"" if bot.shard_count == 1 else "s"))
-   partial_run = partial(app.run, port=os.getenv("PORT"), debug=True, use_reloader=False)
+   partial_run = partial(app.run, port=os.getenv("PORT"), debug=False, use_reloader=False)
    t = Thread(target=partial_run)
    t.start()
 
