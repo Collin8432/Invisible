@@ -101,4 +101,4 @@ if __name__ == "__main__":
    partial_run = partial()
    t = Thread(target=partial_run)
    t.start()
-   bot.run("MTA0MTQxMTY2NjMwMDExNzE1Mw.Gd1dwP.aN9qnEP_A2rKAuHwnINJ3gNYPk59Drsr-RXiAk")
+   bot.run("")
