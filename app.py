@@ -4,7 +4,6 @@ from flask import Flask, render_template, request, redirect
 from functools import partial
 from threading import Thread
 
-
 from utils.db import *
 from utils.web import *
 
@@ -16,7 +15,7 @@ def loadcogs():
    bot.load_extension(f"discordbot.cogs.__init__")
    bot.load_extension(f"discordbot.cogs.listeners.__init__")
 
-         
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -93,12 +92,13 @@ def adminpage():
    return render_template("admin/adminpage.html", perms=Perms, name=Name, features=Features, server_id=server_id, database=database)
 
 
+def create_app():
+   return app
 
 if __name__ == "__main__":
    loadcogs()
    print("Starting up {} shard{}...".format(bot.shard_count,"" if bot.shard_count == 1 else "s"))
-   partial_run = partial(app.run, port=os.getenv("PORT"), debug=False, use_reloader=False)
+   partial_run = partial()
    t = Thread(target=partial_run)
    t.start()
-
    bot.run("MTA0MTQxMTY2NjMwMDExNzE1Mw.Gd1dwP.aN9qnEP_A2rKAuHwnINJ3gNYPk59Drsr-RXiAk")
