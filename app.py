@@ -101,4 +101,4 @@ if __name__ == "__main__":
    partial_run = partial()
    t = Thread(target=partial_run)
    t.start()
-   bot.run("")
+   bot.run(os.getenv("DISCORDTOKEN"))

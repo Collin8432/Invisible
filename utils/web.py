@@ -121,7 +121,7 @@ def checkPerms(perms):
 def exchange_code(code: str):
    data = {
       "client_id": "1041411666300117153",
-      "client_secret": "HBnXStGTRD59mMTJ5iUgGRPEhWmJQr20",
+      "client_secret": os.getenv("DISCORDSECRET"),
       "grant_type": "authorization_code",
       "code": code,
       "redirect_uri": "http://127.0.0.1:5000/recieveinfo",
