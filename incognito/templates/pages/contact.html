@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"
+   <meta name="theme-color" content="#04d9ff">
+   <meta name="title" content="Incognito - Discord Bot">
+   <meta name="description" content="Best Discord Bot">
+   <meta name="keywords" content="Incognito Bot">
+</head>
+<body>
+
+   <div class="header">
+      <nav>
+         <a href="#" class="logo"><img src="{% static 'logo.png' %}"></a>
+         <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/admin">Admin</a></li>
+         </ul>
+         <div class="toggle-btn" id="btn">
+            <span id="btnText">Light</span>
+            <img src="{% static 'sun.png' %}" id="btnIcon">
+         </div>
+      </nav>
+
+      <div class="content">
+         <h1>Contact Us!</h1>
+         <p>Feel free to join the discord by clicking the widget seen on the right to talk to me, or add me on discord: Collin#5385, ideas are also very helpful.</p>
+      </div>
+      
+      <div class="discord">
+         <iframe src="https://discordapp.com/widget?id=829694459100921857&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      </div>
+
+   </div>
+<script>
+let btn = document.getElementById("btn");
+let btnText = document.getElementById("btnText");
+let btnIcon = document.getElementById("btnIcon");
+
+btn.onclick = function(){
+   document.body.classList.toggle("light-theme");
+
+   if (document.body.classList.contains("light-theme")){
+      btnIcon.src = "/static/moon.png";
+      btnText.innerHTML = "Dark";
+   }else{
+      btnIcon.src = "/static/sun.png";
+      btnText.innerHTML = "Light";
+   }
+}
+</script>
+</body>
+<link rel="stylesheet" href="{% static 'styles.css' %}">

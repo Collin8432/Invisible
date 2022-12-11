@@ -1,0 +1,3 @@
+listq = {'server_id': '1035676268873654282', 'server_webhook': 'https://discord.com/api/webhooks/1049428211580280913/Sx9aywyckWs-sMMplMAJh13plPMX_2vqC_NsjxKrXHTuLJ0zhL16NkOjAjUDv9_Eyglv', 'server_membercountvc': '1049428214050734162', 'server_invite': 'https://discord.gg/ZsJSGsbnks', 'verification_channel_id': '1049428215669739530', 'verification_role_id': '1049428215040585828', 'welcome_message': 'Welcome to Incogntio, {member.mention}'}
+
+print(listq["server_membercountvc"])

@@ -1,15 +1,7 @@
 from operator import contains
 import requests
+import os
 
-from utils.db import *
-
-def visit():
-   visitors = databaseSearch("sitevisitors", "*", "visits")
-   visits = int(visitors)
-   visits = visits + 1
-   databaseUpdate("sitevisitors", {"visits": visits}, "visits", visitors)
-   
-   return visits
 
 def getPerms(perms):
    ALL_PERMS = {
@@ -120,26 +112,28 @@ def checkPerms(perms):
    
 def exchange_code(code: str):
    data = {
-      "client_id": "1041411666300117153",
-      "client_secret": os.getenv("DISCORDSECRET"),
+      "client_id": "1051162194722685039",
+      "client_secret": "43gOrgmLvSojx7U1LDtVY8TxAHuwB5jR",
       "grant_type": "authorization_code",
       "code": code,
-      "redirect_uri": "http://127.0.0.1:5000/recieveinfo",
+      "redirect_uri": "http://127.0.0.1:8000/admin/discordoauth",
       "scope": "  identify guild email"
    }
    headers = {
       "Content-Type": "application/x-www-form-urlencoded"
    }
-   response = requests.post("https://discord.com/api/oauth2/token", data=data, headers=headers)
+   response = requests.post("https://discord.com/api/v10/oauth2/token", data=data, headers=headers)
    credentials = response.json()
    access_token = credentials["access_token"]
-   # response = requests.get("https://discord.com/api/v10/users/@me", headers={
-   #    "Authorization": f"Bearer {access_token}"
-   # })
-   # user = response.json()
-
    response = requests.get("https://discord.com/api/v10/users/@me/guilds", headers={
       "Authorization": f"Bearer {access_token}"
    })
    resp = response.json()
    return resp, access_token
+
+def getservers(cookie):
+   response = requests.get("https://discord.com/api/v10/users/@me/guilds", headers={
+      "Authorization": f"Bearer {cookie}"
+   })
+   resp = response.json()
+   return resp
