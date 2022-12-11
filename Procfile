@@ -1,1 +1,1 @@
-web: gunicorn incognito/wsgi.py
+web: gunicorn wsgi.py
