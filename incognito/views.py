@@ -73,6 +73,7 @@ def authed(request: HttpRequest):
    if Permission == True:
       try:
          database = databaseSearchSpecific("discordserver", "*", "server_id", server_id)
+         print("gg")
       except:
          server_webhook = "Not enough permission and/or guild not in database"
          server_invite = "Not enough permission and/or guild not in database"

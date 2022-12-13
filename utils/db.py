@@ -25,10 +25,14 @@ def databaseSearch(table: str, select: str, info: str):
 
 def databaseSearchSpecific(table: str, select: str, what: str, isequaltoo: str):
    supabase: Client = create_client(url, key)
-   data = supabase.table(table).select(select).eq(what, isequaltoo).execute()
+   data = supabase.table(f"{table}").select(select).eq(what, isequaltoo).execute()
    assert len(data.data) > 0
-   return data.data[0][select]
+   if select.lower() == "*":
+      return data.data[0]
+   else:
+      return data.data[0][select]
 
+print(databaseSearchSpecific("discordserver", "*", "server_id", "829694459100921857"))
 
 def databaseUpdate(table: str, data: dict, what: str, isequaltoo: str):
    supabase: Client = create_client(url, key)
