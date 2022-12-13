@@ -17,7 +17,7 @@ def visit():
 def login(request):
    cookie = request.COOKIES.get("access_token")
    if cookie is None or cookie.lower() == "none":
-      return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fadmin%2Fdiscordoauth&response_type=code&scope=identify%20guilds%20email")
+      return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=https%3A%2F%2Fincognitobot.ga%2Fadmin%2Fdiscordoauth&response_type=code&scope=guilds")
    else:
       resp = getservers(cookie)
       
