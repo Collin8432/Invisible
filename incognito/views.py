@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest
+from django.views.decorators.csrf import csrf_protect
+
 
 from utils.db import *
 from utils.web import *
@@ -11,6 +13,7 @@ def visit():
    databaseUpdate("sitevisitors", {"visits": visits}, "visits", visitors)
    return visits
 
+@csrf_protect
 def login(request):
    cookie = request.COOKIES.get("access_token")
    if cookie is None or cookie.lower() == "none":
