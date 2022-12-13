@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^=w1%-7l$$c3^52c(_6h%ww@&28s(8!9zag&fzahv0%tn7-jux
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://incognitobot.ga", "incognitobot.ga", "incognitobot", ".ga"]
+ALLOWED_HOSTS = ["https://incognitobot.ga", "incognitobot.ga", "incognitobot", ".ga", "127.0.0.1"]
 
 
 # Application definition

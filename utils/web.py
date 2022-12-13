@@ -116,7 +116,7 @@ def exchange_code(code: str):
       "client_secret": "43gOrgmLvSojx7U1LDtVY8TxAHuwB5jR",
       "grant_type": "authorization_code",
       "code": code,
-      "redirect_uri": "http://127.0.0.1:8000/admin/discordoauth",
+      "redirect_uri": "https://incognitobot.ga/admin/discordoauth",
       "scope": "  identify guild email"
    }
    headers = {
