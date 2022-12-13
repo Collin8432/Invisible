@@ -1,6 +1,8 @@
 from operator import contains
 import requests
 import os
+from dotenv import load_dotenv
+load_dotenv(".env")
 
 
 def getPerms(perms):
@@ -112,8 +114,8 @@ def checkPerms(perms):
    
 def exchange_code(code: str):
    data = {
-      "client_id": "1051162194722685039",
-      "client_secret": "43gOrgmLvSojx7U1LDtVY8TxAHuwB5jR",
+      "client_id": os.environ.get("DISCORDCLIENTID"),
+      "client_secret": os.environ.get("DISCORDSECRET"),
       "grant_type": "authorization_code",
       "code": code,
       "redirect_uri": "https://incognitobot.ga/admin/discordoauth",
