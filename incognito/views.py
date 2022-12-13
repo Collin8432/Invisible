@@ -71,7 +71,7 @@ def authed(request: HttpRequest):
    
 
    if Permission == True:
-      database = databaseSearch("discordserver", "*", "all")
+      database = databaseSearchSpecific("discordserver", "*", "server_id", server_id)
 
    Perms = getPerms(server["permissions"])
    Perms = str(Perms).replace("[", "").replace("]", "").replace("'", "")
