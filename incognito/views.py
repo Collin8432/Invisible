@@ -71,14 +71,15 @@ def authed(request: HttpRequest):
    
 
    if Permission == True:
-      database = databaseSearchSpecific("discordserver", "*", "server_id", server_id)
-   else:
-      server_webhook = "Not enough permission and/or guild not in database"
-      server_invite = "Not enough permission and/or guild not in database"
-      verification_channel_id = "Not enough permission and/or guild not in database"
-      verification_role_id = "Not enough permission and/or guild not in database"
-      server_membercountvc = "Not enough permission and/or guild not in database"
-      welcome_message = "Not enough permission and/or guild not in database"
+      try:
+         database = databaseSearchSpecific("discordserver", "*", "server_id", server_id)
+      except:
+         server_webhook = "Not enough permission and/or guild not in database"
+         server_invite = "Not enough permission and/or guild not in database"
+         verification_channel_id = "Not enough permission and/or guild not in database"
+         verification_role_id = "Not enough permission and/or guild not in database"
+         server_membercountvc = "Not enough permission and/or guild not in database"
+         welcome_message = "Not enough permission and/or guild not in database"
 
 
    Perms = getPerms(server["permissions"])
