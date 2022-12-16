@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+body {
+   padding:0px;
+   margin:0px;
+   background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("./ocean.png") center center;
+   background-size:cover;
+   width:100vw;
+   height:100vh;
+   overflow:hidden;
+   font-family: 'Josefin Sans', sans-serif;
+}
+
+p {
+   align-items: center;
+   text-align: center;
+}
+
+.middle {
+   width:100vw;
+   height:90vh;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   position:fixed;
+   top:0;
+   text-align:center;
+   z-index:1;
+   color:#fff;
+   padding-bottom:10vh;
+}
+
+.middle h1 {
+   font-size:3.5rem;
+   color:#fe3332;
+}
+
+.middle h2 {
+   font-size:2.5rem;
+   color: #fe3332;
+}
+
+.middle p {
+   font-size:0.5rem;
+   color:#fff;
+}
+
+#particles-js {
+   height: 100%;  
+}
+
+.footer {
+   color:#fff;
+   width:92vw;
+   padding:5vh 4vw;
+   text-align:right;
+   position:fixed;
+   z-index:1;
+   bottom:0;
+   font-size:16px;
+   font-weight:bold;
+}
+.footer a {
+   color: #fe3332;
+}
+
+.social {
+   color:#fff;
+   font-size:22px;
+   border-radius:50%;
+   transition:0.4s ease-in-out;
+   margin:0px 8px;
+   text-align:center;
+}
+.social:hover { 
+   cursor: pointer;
+   color: #fff;
+}
+
+.slidedown {
+   animation: slide-In 2s;
+}
+
+.btn-main {
+   font-size:18px;
+   font-family: 'Josefin Sans', sans-serif;
+   color:#fe3332;
+   background:#fff;
+   border:3px solid #fff;
+   padding:8px 40px;
+   border-radius:80px;
+   font-weight:bold;
+   margin:2vh 10px;
+   transition:0.4s ease-in-out;
+}
+.btn-main:hover {
+   cursor:pointer;
+   padding:8px 60px;
+}
+
+@keyframes slide-In {
+  from {
+    margin-top: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-top: 0%;
+    width: 100%;
+  }
+}
