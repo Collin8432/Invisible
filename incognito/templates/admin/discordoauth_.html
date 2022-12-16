@@ -1,5 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
+<html lang="en">
 <head>
    <title>Incognito</title>
    <link rel="icon" gred="{% static 'logo.png' %}" type="image/x-icon">
@@ -32,12 +33,12 @@
       </nav>
 
       <div class="content">
-         <h1>Contact Us!</h1>
-         <p>Feel free to join the discord by clicking the widget seen on the right to talk to me, or add me on discord: Collin#5385, ideas are also very helpful.</p>
+         <h1>Choose a server to view!</h1>
       </div>
-      
-      <div class="discord">
-         <iframe src="https://discordapp.com/widget?id=829694459100921857&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      <div class="container">
+         {% for server in servers %}
+         <a href="https://incognitobot.ga/admin/authed?server_id={{server.id}}">{{ server.name }}</a>
+         {% endfor %}
       </div>
 
    </div>

@@ -1,136 +1,111 @@
-*{
-  margin: 0;
-  padding: 0;
-  font-family: "PT Sans", Calibri, Tahoma, sans-serif;
-  box-sizing: border-box;
-}
-
-:root {
-  --background-color: #000;
-  --background-color-oppisite: #fff;
-  --text-color: #999;
-  --title-color: #fff;
-}
-
-.light-theme {
-  --background-color: #fff;
-  --background-color-oppisite: #000;
-  --text-color: #555;
-  --title-color: #000;
-}
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background 0.8s, color 0.8s;
+   padding:0px;
+   margin:0px;
+   background:linear-gradient(0deg,rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("./ocean.png") center center;
+   background-size:cover;
+   width:100vw;
+   height:100vh;
+   overflow:hidden;
+   font-family: 'Josefin Sans', sans-serif;
 }
 
-.header {
-  width: 100%;
-  min-height: 100vh;
-  padding: 0 8%;
-  position: relative;
-  overflow: hidden;
+p {
+   align-items: center;
+   text-align: center;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
+.middle {
+   width:100vw;
+   height:90vh;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   position:fixed;
+   top:0;
+   text-align:center;
+   z-index:1;
+   color:#fff;
+   padding-bottom:10vh;
 }
 
-.logo img {
-  width: 180px;
+.middle h1 {
+   font-size:3.5rem;
+   color:#fe3332;
 }
 
-nav ul {
-  width: 100%;
-  text-align: right;
-  list-style: none;
-  margin-right: 50px;
+.middle h2 {
+   font-size:2.5rem;
+   color: #fe3332;
 }
 
-nav ul li {
-  display: inline-block;
-  margin: 5px 15px;
+.middle p {
+   font-size:1.5rem;
+   color:#fff;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 500;
+#particles-js {
+   height: 100%;  
 }
 
-.toggle-btn {
-  background: #04d9ff;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  height: 40px;
-  border-radius: 20px;
-  cursor: pointer;
+.footer {
+   color:#fff;
+   width:92vw;
+   padding:5vh 4vw;
+   text-align:right;
+   position:fixed;
+   z-index:1;
+   bottom:0;
+   font-size:16px;
+   font-weight:bold;
+}
+.footer a {
+   color: #fe3332;
 }
 
-.toggle-btn img {
-  width: 25px;
-  margin-left: 10px;
+.social {
+   color:#fff;
+   font-size:22px;
+   border-radius:50%;
+   transition:0.4s ease-in-out;
+   margin:0px 8px;
+   text-align:center;
+}
+.social:hover { 
+   cursor: pointer;
+   color: #fff;
 }
 
-.content {
-  margin-top: 10%;
-  max-width: 600px;
+.slidedown {
+   animation: slide-In 2s;
 }
 
-.content h1 {
-  font-size: 80px;
-  font-family: "PT Sans", Calibri, Tahoma, sans-serif;
-  color: var(--text-color);
-  font-weight: 600;
+.btn-main {
+   font-size:18px;
+   font-family: 'Josefin Sans', sans-serif;
+   color:#fe3332;
+   background:#fff;
+   border:3px solid #fff;
+   padding:8px 40px;
+   border-radius:80px;
+   font-weight:bold;
+   margin:2vh 10px;
+   transition:0.4s ease-in-out;
+}
+.btn-main:hover {
+   cursor:pointer;
+   padding:8px 60px;
 }
 
+@keyframes slide-In {
+  from {
+    margin-top: 100%;
+    width: 300%; 
+  }
 
-.content a {
-  background: #04d9ff;
-  color: #fff;
-  padding: 15px 70px;
-  border-radius: 30px;
-  cursor: pointer;
-  display: inline-block;
-  margin-top: 30px;
-  text-decoration: none;
-  justify-content: center;
-}
-
-form button {
-  background: #04d9ff;
-  color: #fff;
-  padding: 15px 70px;
-  border-radius: 30px;
-  border: 0px;
-  cursor: pointer;
-  display: inline-block;
-  margin-top: 30px;
-  text-decoration: none;
-  justify-content: center;
-}
-
-.container a {
-  background: #04d9ff;
-  color: #fff;
-  padding: 15px 70px;
-  border-radius: 30px;
-  cursor: pointer;
-  display: inline-block;
-  margin-top: 30px;
-  text-decoration: none;
-  justify-content: center;
-}
-
-.discord{
-  position: absolute;
-  bottom: 0;
-  right :10%;
-  margin-top: 30px;  
+  to {
+    margin-top: 0%;
+    width: 100%;
+  }
 }

@@ -27,15 +27,15 @@ def login(request):
 def index(request):
    visits = visit()
    context = {"visitors": visits}
-   return render(request, 'pages/index.html', context)
+   return render(request, 'main/index.html', context)
 
 def about(request):
    visit()
-   return render(request, "pages/about.html")
+   return render(request, "main/about.html")
 
 def contact(request):
    visit()
-   return render(request, "pages/contact.html")
+   return render(request, "main/contact.html")
 
 def admin(request):
    visit()
@@ -73,7 +73,6 @@ def authed(request: HttpRequest):
    if Permission == True:
       try:
          database = databaseSearchSpecific("discordserver", "*", "server_id", server_id)
-         print("gg")
       except:
          server_webhook = "Not enough permission and/or guild not in database"
          server_invite = "Not enough permission and/or guild not in database"

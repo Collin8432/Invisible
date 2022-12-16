@@ -32,7 +32,6 @@ def databaseSearchSpecific(table: str, select: str, what: str, isequaltoo: str):
    else:
       return data.data[0][select]
 
-print(databaseSearchSpecific("discordserver", "*", "server_id", "829694459100921857"))
 
 def databaseUpdate(table: str, data: dict, what: str, isequaltoo: str):
    supabase: Client = create_client(url, key)
