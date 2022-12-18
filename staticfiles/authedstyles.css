@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+#particles-js {
+   height: 100%;  
+}
+
+
+body {
+   padding:0px;
+   margin:0px;
+   background:linear-gradient(0deg,rgba(0,0,0,1),rgba(0,0,0,0)),url("./ocean.png") center center fixed;
+   background-size:100% auto;
+   overflow-x: hidden;
+   width:100%;
+   font-family: 'Josefin Sans', sans-serif;
+}
+
+
+p {
+   align-items: center;
+   text-align: center;
+}
+
+.middle {
+   width:100vw;
+   height:90vh;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   top:0;
+   text-align:center;
+   position:absolute;
+   left:0;
+   right:0;
+   z-index:1;
+   color:#fff;
+}
+
+.middle h1 {
+   font-size:3.5rem;
+   color:#fe3332;
+}
+
+.middle h2 {
+   font-size:2.5rem;
+   color: #fe3332;
+}
+
+.middle p {
+   font-size:0.5rem;
+   color:#fff;
+}
+
+#particles-js {
+   height: 100%;  
+}
+
+.footer {
+   color:#fe3332;
+   width:92vw;
+   padding:5vh 4vw;
+   text-align:right;
+   position:fixed;
+   z-index:1;
+   bottom:0;
+   font-size:16px;
+   font-weight:bold;
+}
+.footer a {
+   color: #fe3332;
+}
+
+.social {
+   color:#fff;
+   font-size:22px;
+   border-radius:50%;
+   transition:0.4s ease-in-out;
+   margin:0px 8px;
+   text-align:center;
+}
+.social:hover { 
+   cursor: pointer;
+   color: #fff;
+}
+
+.btn-main {
+   font-size:18px;
+   font-family: 'Josefin Sans', sans-serif;
+   color:#fe3332;
+   background:#fff;
+   border:3px solid #fff;
+   padding:8px 40px;
+   border-radius:80px;
+   font-weight:bold;
+   margin:2vh 10px;
+   transition:0.4s ease-in-out;
+}
+.btn-main:hover {
+   cursor:pointer;
+   padding:8px 60px;
+}
+
+.database {
+   background-color: #fff;
+}
+::-webkit-scrollbar {
+   width:5px;
+   height:5px;
+}
+::-webkit-scrollbar-track {
+   background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+   background: #000; 
+}
+::-webkit-scrollbar-thumb:hover {
+   background: #555; 
+}
