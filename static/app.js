@@ -47,7 +47,7 @@ particlesJS('particles-js', {
       },
       "line_linked": {
         "enable": false,
-        "distance": 150,
+        "distance": 110.48066982851817,
         "color": "#ffffff",
         "opacity": 0.4,
         "width": 1
@@ -75,7 +75,7 @@ particlesJS('particles-js', {
           "mode": "repulse"
         },
         "onclick": {
-          "enable": true,
+          "enable": false,
           "mode": "push"
         },
         "resize": true

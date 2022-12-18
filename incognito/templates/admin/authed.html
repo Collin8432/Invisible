@@ -4,44 +4,52 @@
 <head>
 <meta charset="UTF-8">
 <title>Incognito</title>
-<link rel="stylesheet" href="{% static 'authedstyles.css' %}"></script>
+<link rel="stylesheet" href="{% static 'styles.css' %}"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 </head>
 <body>
    <div id="particles-js">
    </div>
-   <div class="middle slidedown">
-      
-      <h1>Incognito.</h1>
-      <h2>A Simple Discord Application</h2>
-      <i onclick="location.href='https://discord.gg/tSwMrkneyX'" class="fab fa-discord social"></i>
-      <h1>Guild {{name}}</h1>
-      <br><br>
-      <p><b>Server ID:</b> {{server_id}}</p>
-         <br>
-         <p><b>Permissions:</b> {{perms}}</p>
-         <br>
-         <p><b>Features:</b> {{features}}</p>
-         <br>
-         <p><b>Database Information:</b> {{name}}</p>
-         <br>
-         <p><b>Database Webhook:</b> {{server_webhook}}</p>
-         <br>
-         <p><b>Database Invite Link:</b> {{server_invite}}</p>
-         <br>
-         <p><b>Database Verification Channel ID:</b> {{verification_channel_id}}</p>
-         <br>
-         <p><b>Database Verification Role ID:</b> {{verification_role_id}}</p>
-         <br>
-         <p><b>Database Member Count Voice Channel ID:</b> {{server_membercountvc}}</p>
-         <br>
-         <p><b>Database Welcome Message:</b> {{welcome_message}}</p>
-   </div>
-   
-   <div class="footer">
-      Made By Collin <br></br> <a href="https://github.com/Collin8432">GitHub</a>
-  </div>
-
+   <div class="middle">
+      <div class="animated bounceInDown">
+         <h1>Incognito</h1>
+         <h2>A Simple Discord Application</h2>
+      </div>
+      <div class="animated fadeIn">
+         <i onclick="location.href='https://discord.gg/HGVRQY2g'" class="fab fa-discord discordico"></i>
+      </div>
+      <div class="animated bounceInUp">
+         <button onclick="location.href='/'"class="btn-main">Home</button>
+         <form method="POST" action="login">
+            {% csrf_token %}
+            <button class="btn-main">Login</button>
+         </form> 
+         <button onclick="location.href='/portfolio'"class="btn-main">Portfolio</button>
+      </div>
+      <div class="transparent animated bounceInDown">
+         <h1>Guild {{name}}</h1>
+         <br><br>
+         <p><b>Server ID:</b> {{server_id}}</p>
+            <br>
+            <p><b>Permissions:</b> {{perms}}</p>
+            <br>
+            <p><b>Features:</b> {{features}}</p>
+            <br>
+            <p><b>Database Information:</b> {{name}}</p>
+            <br>
+            <p><b>Database Webhook:</b> {{server_webhook}}</p>
+            <br>
+            <p><b>Database Invite Link:</b> {{server_invite}}</p>
+            <br>
+            <p><b>Database Verification Channel ID:</b> {{verification_channel_id}}</p>
+            <br>
+            <p><b>Database Verification Role ID:</b> {{verification_role_id}}</p>
+            <br>
+            <p><b>Database Member Count Voice Channel ID:</b> {{server_membercountvc}}</p>
+            <br>
+            <p><b>Database Welcome Message:</b> {{welcome_message}}</p>
+      </div> 
 </body>
 <script src="{% static 'index.js' %}"></script>
 <script src="{% static 'particles.js' %}"></script>

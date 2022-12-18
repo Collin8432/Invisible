@@ -29,17 +29,9 @@ def index(request):
    context = {"visitors": visits}
    return render(request, 'main/index.html', context)
 
-def about(request):
+def portfolio(request):
    visit()
-   return render(request, "main/about.html")
-
-def contact(request):
-   visit()
-   return render(request, "main/contact.html")
-
-def admin(request):
-   visit()
-   return render(request, "admin/admin.html")
+   return render(request, 'main/portfolio.html')
 
 def discordoauth(request: HttpRequest):
    code = request.GET.get("code")
@@ -98,7 +90,12 @@ def authed(request: HttpRequest):
       server_membercountvc = database["server_membercountvc"]  
       welcome_message = database["welcome_message"]
    except:
-      pass
+      server_webhook = "Not enough permission and/or guild not in database"
+      server_invite = "Not enough permission and/or guild not in database"
+      verification_channel_id = "Not enough permission and/or guild not in database"
+      verification_role_id = "Not enough permission and/or guild not in database"
+      server_membercountvc = "Not enough permission and/or guild not in database"
+      welcome_message = "Not enough permission and/or guild not in database"
    
    context = {
       "perms": Perms,

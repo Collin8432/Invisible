@@ -6,25 +6,26 @@
 <title>Incognito</title>
 <link rel="stylesheet" href="{% static 'styles.css' %}"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 </head>
 <body>
    <div id="particles-js">
    </div>
-   <div class="middle slidedown">
-      
-      <h1>Incognito.</h1>
-      <h2>A Simple Discord Application</h2>
-      <i onclick="location.href='https://discord.gg/tSwMrkneyX'" class="fab fa-discord social"></i>
-      <p>Pick a server to view.</p>
-      {% for server in servers %}
-      <a href="https://incognitobot.ga/admin/authed?server_id={{server.id}}">{{ server.name }}</a>
-      {% endfor %}
+   <div class="middle">
+      <div class="animated bounceInDown">
+         <h1>Incognito</h1>
+         <h2>A Simple Discord Application</h2>
+      </div>
+      <div class="animated fadeIn">
+         <i onclick="location.href='https://discord.gg/HGVRQY2g'" class="fab fa-discord discordico"></i>
+      </div>
+      <div class="animated fadeIn">
+         <p>Pick a server to view</p>
+         {% for server in servers %}
+         <button onclick="location.href='https://incognitobot.ga/admin/authed?server_id={{server.id}}'" class="btn-login">{{ server.name }}</button>
+         {% endfor %}
+      </div>
    </div>
-   
-   <div class="footer">
-      Made By Collin <br></br> <a href="https://github.com/Collin8432">GitHub</a>
-  </div>
-
 </body>
 <script src="{% static 'index.js' %}"></script>
 <script src="{% static 'particles.js' %}"></script>
