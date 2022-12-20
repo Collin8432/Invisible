@@ -1,0 +1,170 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+/* Particles.JS */
+#particles-js {
+   height: 100%;  
+   width: 100%;
+   position: fixed;
+   top: 5%;
+   overflow-y: hidden;
+
+}
+
+/* Hiding Overflow */
+* {
+   overflow-x: hidden;
+   margin: 0;
+   padding: 0;
+   scroll-behavior: smooth;
+}
+
+/* Logo */
+.logo {
+   color: transparent;
+   -webkit-text-stroke: 1px #FF5733;
+   text-transform: uppercase;
+   letter-spacing: 5px;
+   font-size: 20px;
+}
+
+/* Navigation Bar */
+nav {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   min-height: 10vh;
+}
+
+ul {
+   display: flex;
+   list-style: none;
+   justify-content: space-around;
+   width: 30%;
+}
+
+nav a {
+   text-decoration: none;
+   color: #FF5733;
+   font-weight: bold;
+}
+
+nav a:hover {
+	cursor: pointer;
+   color: #fff;
+}
+
+/* Body/Background */
+body {
+   font-family: 'Josefin Sans', sans-serif;
+   /* background: url("image.png") center center fixed;
+   background-repeat: no-repeat;
+   background-size: 100%; */
+   background-color: #131318;
+   overflow: hidden;
+}
+
+/* Font Awesome Icon */
+.discordico {
+   color: #FF5733;
+}
+
+.discordico:hover {
+   cursor: pointer;
+}
+
+.arrow {
+   margin-top: 20%;
+   color: #FF5733;
+}
+
+.arrow:hover {
+   cursor: pointer;
+}
+
+/* Middle Section */
+.middle {
+   width: 100%;
+   align-items: center;
+   text-align: center;
+   padding: 70px 0;
+   overflow-y: hidden;
+}
+
+.middle h1 { 
+   color: #FF5733;
+   font-weight: bold;
+   padding: 15px;
+}
+
+.middle h2 {
+   color: #FF5733;
+   padding: 15px;
+}
+
+/* Spacing */
+.spacer {
+   margin-top: 100px;
+}
+
+/* About Section */
+section {
+   height: 100%;
+   margin: auto;
+   max-width: 90%;
+}
+
+section p {
+   padding: 30px 0;
+   color: #fff;
+   text-align: center;
+}
+
+/* center the button */
+section button {
+   position: absolute;
+   left: 47%;
+}
+
+.section-title {
+   text-align: center;
+   color: #FF5733;
+   text-transform: uppercase;
+   font-weight: normal;
+   padding: 30px 0;
+   /* border-top: 1px solid #fff; */
+   border-bottom: 1px solid #fff;
+}
+
+/* Footer */
+footer {
+   color: #fff;
+   text-align: center;
+   padding: 30px 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   position: sticky;
+   width: 100%;
+}
+
+/* Button */
+.btn-main {
+   border-radius: 75px;
+   background-color: #FF5733;
+   color: #fff;
+   border: 2px solid #FF5733;
+   width: 5%;
+   font-weight: bold;
+   padding: 10px 10px;
+   margin-top: 15px;
+   margin-left: 5px;
+   margin-right: 5px;
+   transition: 0.3s ease-in-out;
+}
+
+.btn-main:hover {
+   background-color: #fff;
+   color: #FF5733;
+   cursor: pointer;
+}
