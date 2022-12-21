@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -15,33 +15,79 @@ def visit():
 
 @csrf_exempt
 def login(request):
-   cookie = request.COOKIES.get("access_token")
-   if cookie is None or cookie.lower() == "none":
-      return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=https%3A%2F%2Fincognitobot.ga%2Fadmin%2Fdiscordoauth&response_type=code&scope=guilds")
+   code = request.GET.get("code")
+   if code is not None:
+      resp, access_token = exchange_code(code)
+      context = {"servers": resp}
+      data = render(request, "admin/discordoauth.html", context)
+      data.set_cookie("access_token", access_token)
+      return data
    else:
-      resp = getservers(cookie)
-      
-   context = {"servers": resp}   
-   return render(request, "admin/discordoauth.html", context)
+      try:
+         cookie = request.COOKIES.get("access_token")
+         context = getServers(cookie)
+         for server in context:
+            Perms = getPerms(server["permissions"])
+            Perms = str(Perms).replace("[", "").replace("]", "").replace("'", "")
+            Features = server["features"]
+            Features = str(Features).replace("[", "").replace("]", "").replace("'", "")
+            
+            server["features"] = Features
+            server["permissions"] = Perms
+            
+            preview = get_preview(cookie, server["id"])
+            server["emojis"] = preview["emojis"]
+            server["membercount"] = preview["approximate_member_count"]
+            server["description"] = preview["description"]
+            server["stickers"] = preview["stickers"]
+            
+         context = {"servers": context}
+         data = render(request, "admin/discordoauth.html", context)
+         return data
+      except:
+         return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=https%3A%2F%2Fincognitobot.ga%2Fadmin%2Fdiscordoauth&response_type=code&scope=identify%20email%20guilds%20guilds.members.read%20guilds.join%20gdm.join")
 
+      
+      
 def index(request):
    visits = visit()
    context = {"visitors": visits}
    return render(request, 'main/index.html', context)
 
-def portfolio(request):
-   visit()
-   return render(request, 'main/portfolio.html')
 
 def discordoauth(request: HttpRequest):
    code = request.GET.get("code")
-   print(code)
-   resp, access_token = exchange_code(code)
-   
-   context = {"servers": resp}
-   data = render(request, "admin/discordoauth.html", context)
-   data.set_cookie("access_token", access_token)
-   return data
+   if code is not None:
+      resp, access_token = exchange_code(code)
+      context = {"servers": resp}
+      data = render(request, "admin/discordoauth.html", context)
+      data.set_cookie("access_token", access_token)
+      return data
+   else:
+      try:
+         cookie = request.COOKIES.get("access_token")
+         context = getServers(cookie)
+         for server in context:
+            Perms = getPerms(server["permissions"])
+            Perms = str(Perms).replace("[", "").replace("]", "").replace("'", "")
+            Features = server["features"]
+            Features = str(Features).replace("[", "").replace("]", "").replace("'", "")
+            
+            server["features"] = Features
+            server["permissions"] = Perms
+            
+            preview = get_preview(cookie, server["id"])
+            server["emojis"] = preview["emojis"]
+            server["membercount"] = preview["approximate_member_count"]
+            server["description"] = preview["description"]
+            server["stickers"] = preview["stickers"]
+            
+         context = {"servers": context}
+         data = render(request, "admin/discordoauth.html", context)
+         return data
+      except:
+         return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=https%3A%2F%2Fincognitobot.ga%2Fadmin%2Fdiscordoauth&response_type=code&scope=identify%20email%20guilds%20guilds.members.read%20guilds.join%20gdm.join")
+
 
 def authed(request: HttpRequest):
    visit()

@@ -107,7 +107,11 @@ body {
    margin-top: 100px;
 }
 
-/* About Section */
+.minispacer{
+   margin-top: 25px;
+}
+
+/* Sections */
 section {
    height: 100%;
    margin: auto;
@@ -120,7 +124,6 @@ section p {
    text-align: center;
 }
 
-/* center the button */
 section button {
    position: absolute;
    left: 47%;
@@ -135,6 +138,23 @@ section button {
    /* border-top: 1px solid #fff; */
    border-bottom: 1px solid #fff;
 }
+
+.database-card {
+   margin-left: 100px;
+   margin-right: 100px;
+}
+
+.database-card h1 {
+   max-width: 45%;
+   float: left;
+   font-weight: bold;
+   font-size: 96px;
+   color: #FF5733;
+   padding: 200px 0;
+   border-bottom: 1px solid #fff;
+}
+
+.server-preview
 
 /* Footer */
 footer {

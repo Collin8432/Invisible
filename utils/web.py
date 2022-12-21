@@ -119,10 +119,10 @@ def exchange_code(code: str):
       "grant_type": "authorization_code",
       "code": code,
       "redirect_uri": "https://incognitobot.ga/admin/discordoauth",
-      "scope": "  identify guild email"
+      "scope": "identify guild email guilds.members.read guilds.join gdm.join"
    }
    headers = {
-      "Content-Type": "application/x-www-form-urlencoded"
+      'Content-Type': 'application/x-www-form-urlencoded'
    }
    response = requests.post("https://discord.com/api/v10/oauth2/token", data=data, headers=headers)
    credentials = response.json()
@@ -133,7 +133,16 @@ def exchange_code(code: str):
    resp = response.json()
    return resp, access_token
 
-def getservers(cookie):
+
+def get_preview(access_token, id):
+   response = requests.get(f"https://discord.com/api/v10/guilds/{id}/preview", headers={
+   "Authorization": f"Bearer {access_token}"
+   })
+   resp = response.json()
+   return resp
+
+
+def getServers(cookie):
    response = requests.get("https://discord.com/api/v10/users/@me/guilds", headers={
       "Authorization": f"Bearer {cookie}"
    })

@@ -53,15 +53,21 @@
       <div class="spacer"></div>
       <div class="spacer"></div>
 
-      <section id="servers" data-aos="fade-right">
+      <div id="servers" data-aos="fade-right">
          <h2 class="section-title">Pick a server to view</h2>
          <div class="spacer"></div>
          {% for server in servers %}
-         <h3 class="section-title">{{ server.name }}</h3>
-         <button onclick="location.href='https://incognitobot.ga/admin/authed?server_id={{server.id}}'" class="btn-main">View</button>
-         <div class="spacer"</div>
+         <section class="database-card">
+            <h1>{{ server.name }}</h1>
+            <div class="server-preview">
+               <p></p>
+               <button onclick="location.href='https://incognitobot.ga/admin/authed?server_id={{server.id}}'" class="btn-main">View</button>
+            </div>
+         </section>
          {% endfor %}
-      </section>
+      </div>
+
+      <div class="spacer"></div>
 
       <!-- Footer -->
       <footer>
