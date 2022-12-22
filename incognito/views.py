@@ -75,18 +75,13 @@ def discordoauth(request: HttpRequest) -> Any:
             server["features"] = Features
             server["permissions"] = Perms
             
-            icon = server["icon"]
-            id = server["id"]
-            server["icon"] = f"https://cdn.discordapp.com/icons/{id}/{icon}.png"
-            
          context = {"servers": context}
          data = render(request, "admin/discordoauth.html", context)
          return data
       except Exception as e:
          print(e)
-         return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fadmin%2Fdiscordoauth&response_type=code&scope=guilds%20identify")
-         # https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=https%3A%2F%2Fincognitobot.ga%2Fadmin%2Fdiscordoauth&response_type=code&scope=guilds%20identify
-
+         return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=https%3A%2F%2Fincognitobot.ga%2Fadmin%2Fdiscordoauth&response_type=code&scope=guilds%20identify")
+         # https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fadmin%2Fdiscordoauth&response_type=code&scope=guilds%20identify
 def authed(request: HttpRequest):
    visit()
    server_id = request.GET.get("server_id")
