@@ -18,6 +18,7 @@ def visit() -> int:
 def login(request) -> Any:
    code = request.GET.get("code")
    if code is not None:
+      print("cnn")
       resp, access_token = exchangeCode(code)
       context = {"servers": resp}
       data = render(request, "admin/discordoauth.html", context)
@@ -30,22 +31,18 @@ def login(request) -> Any:
          for server in context:
             Perms = getPerms(server["permissions"])
             Perms = str(Perms).replace("[", "").replace("]", "").replace("'", "")
-            print(Perms)
             Features = server["features"]
             Features = str(Features).replace("[", "").replace("]", "").replace("'", "")
-            
             server["features"] = Features
             server["permissions"] = Perms
-            print(server["permissions"])
-            
-            
             
          context = {"servers": context}
          data = render(request, "admin/discordoauth.html", context)
          return data
-      except:
-         return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=https%3A%2F%2Fincognitobot.ga%2Fadmin%2Fdiscordoauth&response_type=code&scope=identify%20email%20guilds%20guilds.members.read%20guilds.join%20gdm.join")
-
+      except Exception as e:
+         print(e)
+         return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=https%3A%2F%2Fincognitobot.ga%2Fadmin%2Fdiscordoauth&response_type=code&scope=guilds%20identify")
+         # https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fadmin%2Fdiscordoauth&response_type=code&scope=guilds%20identify
       
       
 def index(request) -> Any:
