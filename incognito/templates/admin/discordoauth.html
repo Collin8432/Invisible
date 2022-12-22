@@ -41,10 +41,6 @@
             <i onclick="location.href='https://discord.gg/HGVRQY2g'" class="fa-brands fa-discord discordico"></i>
          </div>
          <div data-aos="zoom-in" data-aos-duration="1000">
-            <form method="POST" action="login">
-               {% csrf_token %}
-               <button class="btn-main">Login</button>
-            </form> 
             <!-- Scroll button -->
             <i onclick="location.href='#servers'" class="fa-solid fa-arrow-down arrow"></i>
          </div>
@@ -58,11 +54,8 @@
          <div class="spacer"></div>
          {% for server in servers %}
          <section class="database-card">
-            <h1>{{ server.name }}</h1>
-            <div class="server-preview">
-               <p></p>
-               <button onclick="location.href='https://incognitobot.ga/admin/authed?server_id={{server.id}}'" class="btn-main">View</button>
-            </div>
+            <a href="https://incognitobot.ga/admin/authed?server_id={{server.id}}">{{ server.name }}</a>
+            <img href="https://incognitobot.ga/admin/authed?server_id={{server.id}}" src="{{ server.icon }}"></img>
          </section>
          {% endfor %}
       </div>

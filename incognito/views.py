@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 
+from typing import Any
 
 from utils.db import *
 from utils.web import *
 
-def visit():
+def visit() -> int:
    visitors = databaseSearch("sitevisitors", "*", "visits")
    visits = int(visitors)
    visits = visits + 1
@@ -14,10 +15,10 @@ def visit():
    return visits
 
 @csrf_exempt
-def login(request):
+def login(request) -> Any:
    code = request.GET.get("code")
    if code is not None:
-      resp, access_token = exchange_code(code)
+      resp, access_token = exchangeCode(code)
       context = {"servers": resp}
       data = render(request, "admin/discordoauth.html", context)
       data.set_cookie("access_token", access_token)
@@ -29,17 +30,15 @@ def login(request):
          for server in context:
             Perms = getPerms(server["permissions"])
             Perms = str(Perms).replace("[", "").replace("]", "").replace("'", "")
+            print(Perms)
             Features = server["features"]
             Features = str(Features).replace("[", "").replace("]", "").replace("'", "")
             
             server["features"] = Features
             server["permissions"] = Perms
+            print(server["permissions"])
             
-            preview = get_preview(cookie, server["id"])
-            server["emojis"] = preview["emojis"]
-            server["membercount"] = preview["approximate_member_count"]
-            server["description"] = preview["description"]
-            server["stickers"] = preview["stickers"]
+            
             
          context = {"servers": context}
          data = render(request, "admin/discordoauth.html", context)
@@ -49,16 +48,17 @@ def login(request):
 
       
       
-def index(request):
+def index(request) -> Any:
    visits = visit()
    context = {"visitors": visits}
    return render(request, 'main/index.html', context)
 
 
-def discordoauth(request: HttpRequest):
+def discordoauth(request: HttpRequest) -> Any:
    code = request.GET.get("code")
    if code is not None:
-      resp, access_token = exchange_code(code)
+      print("cnn")
+      resp, access_token = exchangeCode(code)
       context = {"servers": resp}
       data = render(request, "admin/discordoauth.html", context)
       data.set_cookie("access_token", access_token)
@@ -72,22 +72,20 @@ def discordoauth(request: HttpRequest):
             Perms = str(Perms).replace("[", "").replace("]", "").replace("'", "")
             Features = server["features"]
             Features = str(Features).replace("[", "").replace("]", "").replace("'", "")
-            
             server["features"] = Features
             server["permissions"] = Perms
             
-            preview = get_preview(cookie, server["id"])
-            server["emojis"] = preview["emojis"]
-            server["membercount"] = preview["approximate_member_count"]
-            server["description"] = preview["description"]
-            server["stickers"] = preview["stickers"]
+            icon = server["icon"]
+            id = server["id"]
+            server["icon"] = f"https://cdn.discordapp.com/icons/{id}/{icon}.png"
             
          context = {"servers": context}
          data = render(request, "admin/discordoauth.html", context)
          return data
-      except:
-         return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=https%3A%2F%2Fincognitobot.ga%2Fadmin%2Fdiscordoauth&response_type=code&scope=identify%20email%20guilds%20guilds.members.read%20guilds.join%20gdm.join")
-
+      except Exception as e:
+         print(e)
+         return redirect("https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fadmin%2Fdiscordoauth&response_type=code&scope=guilds%20identify")
+         # https://discord.com/api/oauth2/authorize?client_id=1051162194722685039&redirect_uri=https%3A%2F%2Fincognitobot.ga%2Fadmin%2Fdiscordoauth&response_type=code&scope=guilds%20identify
 
 def authed(request: HttpRequest):
    visit()
@@ -102,10 +100,10 @@ def authed(request: HttpRequest):
          server = item
 
             
-   if server["owner"]:
+   if server["owner"]: # type: ignore
       Permission = True
    else:
-      Permission = checkPerms(server["permissions"])
+      Permission = checkPerms(server["permissions"]) # type: ignore
    
 
    if Permission == True:
@@ -120,21 +118,21 @@ def authed(request: HttpRequest):
          welcome_message = "Not enough permission and/or guild not in database"
 
 
-   Perms = getPerms(server["permissions"])
+   Perms = getPerms(server["permissions"]) # type: ignore
    Perms = str(Perms).replace("[", "").replace("]", "").replace("'", "")
    
-   Name = server["name"]
+   Name = server["name"] # type: ignore
    
-   Features = server["features"]
+   Features = server["features"] # type: ignore
    Features = str(Features).replace("[", "").replace("]", "").replace("'", "")
    
    try:
-      server_webhook = database["server_webhook"]  
-      server_invite = database["server_invite"]  
-      verification_channel_id = database["verification_channel_id"]  
-      verification_role_id = database["verification_role_id"]  
-      server_membercountvc = database["server_membercountvc"]  
-      welcome_message = database["welcome_message"]
+      server_webhook = database["server_webhook"]   # type: ignore
+      server_invite = database["server_invite"]   # type: ignore
+      verification_channel_id = database["verification_channel_id"]   # type: ignore
+      verification_role_id = database["verification_role_id"]   # type: ignore
+      server_membercountvc = database["server_membercountvc"]   # type: ignore
+      welcome_message = database["welcome_message"] # type: ignore
    except:
       server_webhook = "Not enough permission and/or guild not in database"
       server_invite = "Not enough permission and/or guild not in database"

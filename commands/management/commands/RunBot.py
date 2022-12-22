@@ -17,7 +17,7 @@ def loadcogs():
 class Command(BaseCommand):
     help = "Run a discord bot"
 
-    def handle(self, *args, **options):
+    def handle(self, *args, **options) -> None:
          loadcogs()
          print("Starting up {} shard{}...".format(bot.shard_count,"" if bot.shard_count == 1 else "s"))
          bot.run(os.environ.get("DISCORDTOKEN"))

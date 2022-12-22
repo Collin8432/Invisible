@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv(".env")
 
 
-def getPerms(perms):
+def getPerms(perms: int) -> list:
    ALL_PERMS = {
       "CREATE_INSTANT_INVITE": 0x1,
       "KICK_MEMBERS": 0x2,
@@ -57,7 +57,7 @@ def getPerms(perms):
          
    return has_perms
 
-def checkPerms(perms):
+def checkPerms(perms: str) -> bool:
    ALL_PERMS = {
       "CREATE_INSTANT_INVITE": 0x1,
       "KICK_MEMBERS": 0x2,
@@ -112,14 +112,14 @@ def checkPerms(perms):
    else:
       return False
    
-def exchange_code(code: str):
+def exchangeCode(code: str) -> tuple:
    data = {
       "client_id": os.environ.get("DISCORDCLIENTID"),
       "client_secret": os.environ.get("DISCORDSECRET"),
       "grant_type": "authorization_code",
       "code": code,
       "redirect_uri": "https://incognitobot.ga/admin/discordoauth",
-      "scope": "identify guild email guilds.members.read guilds.join gdm.join"
+      "scope": "identify guild"
    }
    headers = {
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -133,16 +133,7 @@ def exchange_code(code: str):
    resp = response.json()
    return resp, access_token
 
-
-def get_preview(access_token, id):
-   response = requests.get(f"https://discord.com/api/v10/guilds/{id}/preview", headers={
-   "Authorization": f"Bearer {access_token}"
-   })
-   resp = response.json()
-   return resp
-
-
-def getServers(cookie):
+def getServers(cookie) -> dict:
    response = requests.get("https://discord.com/api/v10/users/@me/guilds", headers={
       "Authorization": f"Bearer {cookie}"
    })

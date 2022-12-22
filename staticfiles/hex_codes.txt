@@ -1,5 +1,0 @@
-
-blue 04d9ff
-
-pink FF10F0
-      <div class="spacer2 layer2"</div>

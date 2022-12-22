@@ -1,20 +1,20 @@
 import os
-from supabase import create_client, Client
+from supabase import create_client, Client # type: ignore
 SUPABASE_URL="https://xyowqbyxqtypxzhqtpyu.supabase.co"
 from dotenv import load_dotenv
 load_dotenv(".env")
-SUPABASE_KEY=os.environ.get("SUPABASEKEY")
+SUPABASE_KEY: str = os.environ.get("SUPABASEKEY") # type: ignore
 url: str = SUPABASE_URL
 key: str = SUPABASE_KEY
 
+from typing import Any
 
-
-def databaseInsert(table: str, data: dict): 
+def databaseInsert(table: str, data: dict) -> None: 
    supabase: Client = create_client(url, key)
    data = supabase.table(table).insert(data).execute()
-   assert len(data.data) > 0
+   assert len(data.data) > 0 # type: ignore
 
-def databaseSearch(table: str, select: str, info: str):
+def databaseSearch(table: str, select: str, info: str) -> Any:
    supabase: Client = create_client(url, key)
    data = supabase.table(f"{table}").select(f"{select}").execute()
    assert len(data.data) > 0
@@ -23,7 +23,7 @@ def databaseSearch(table: str, select: str, info: str):
    else:
       return data.data[0][info]
 
-def databaseSearchSpecific(table: str, select: str, what: str, isequaltoo: str):
+def databaseSearchSpecific(table: str, select: str, what: str, isequaltoo: str) -> Any:
    supabase: Client = create_client(url, key)
    data = supabase.table(f"{table}").select(select).eq(what, isequaltoo).execute()
    assert len(data.data) > 0
@@ -33,12 +33,12 @@ def databaseSearchSpecific(table: str, select: str, what: str, isequaltoo: str):
       return data.data[0][select]
 
 
-def databaseUpdate(table: str, data: dict, what: str, isequaltoo: str):
+def databaseUpdate(table: str, data: dict, what: str, isequaltoo: str) -> Any:
    supabase: Client = create_client(url, key)
    data = supabase.table(table).update(data).eq(what, isequaltoo).execute()
-   assert len(data.data) > 0
+   assert len(data.data) > 0 # type: ignore
 
-def databaseDelete(table: str, what: str, isequaltoo: str):
+def databaseDelete(table: str, what: str, isequaltoo: str) -> Any:
    supabase: Client = create_client(url, key)
    data = supabase.table(table).delete().eq(what, isequaltoo).execute()
    assert len(data.data) > 0
