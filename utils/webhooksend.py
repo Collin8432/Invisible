@@ -21,7 +21,7 @@ async def webhooksend(title: str, description: str, guild_id: str) -> None:
             timestamp=disnake.utils.utcnow()
          )
          embed.set_footer(
-            text=f"Incognito Discord Bot"
+            text=f"Invisible Discord Bot"
          )
          await webhook.send(embed=embed)
    except: 

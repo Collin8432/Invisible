@@ -14,7 +14,7 @@ class Tasks(commands.Cog):
       
    @tasks.loop(minutes=1.0)
    async def status_task(self) -> None:
-      statuses = ["IncognitoBot", "IncognitoBot.ga", "Incognito Discord Bot"]
+      statuses = ["InvisibleBot", "InvisibleBot.ga", "Invisible Discord Bot"]
       # statuses = [f"Watching Over {len(self.bot.guilds)} Servers!", "With You!", "With Astro!", "In Space!"]
       await self.bot.wait_until_ready()
       await self.bot.change_presence(activity=disnake.Game(random.choice(statuses)))

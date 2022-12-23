@@ -1,4 +1,4 @@
-#!C:\Users\astro\Desktop\Important\GitProj\discordwebflask\IncognitoBot-Flask\venv\Scripts\python.exe
+#!C:\Users\astro\Desktop\Important\GitProj\discordweb-django\IncognitoBot-Django\venv\Scripts\python.exe
 # :Copyright: © 2015 Günter Milde.
 # :License: Released under the terms of the `2-Clause BSD license`_, in short:
 #

@@ -28,9 +28,9 @@ class Setup(commands.Cog):
       overwrites = {
          interaction.guild.default_role: disnake.PermissionOverwrite(view_channel=False, send_messages=False, read_messages=False),  
       }
-      category = await interaction.guild.create_category(name="Incognito", overwrites=overwrites)
-      channel = await category.create_text_channel(name="IncognitoBot-Logs", overwrites=overwrites)
-      webhook = await channel.create_webhook(name="Incognito", avatar=data)
+      category = await interaction.guild.create_category(name="Invisible", overwrites=overwrites)
+      channel = await category.create_text_channel(name="InvisibleBot-Logs", overwrites=overwrites)
+      webhook = await channel.create_webhook(name="Invisible", avatar=data)
       
       try:
          await webhooksend("Test Webhook Message", "If This Message Is Sent, The Webhook Is Working, Further Use Of The Bot Can Be Accessed With /help", f"{interaction.guild.id}")

@@ -1,0 +1,99 @@
+<!-- Load Content, css -->
+<!DOCTYPE html>
+<!-- Loading the static content from settings.py -->
+{% load static %}
+<html>
+   <head>
+      <!-- initializing -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Invisible</title>
+      <meta name="description" content="Invisible">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Loading CSS -->
+      <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   </head>
+   <body>
+      <!-- Particles.JS Particles -->
+      <div id="particles-js">
+      </div>
+
+      <!-- Navigation -->
+      <nav>
+         <div class="logo">
+            <h4>Invisible</h4>
+         </div>
+         <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#contact">Contact</a></li>
+         </ul>
+      </nav>
+         
+      <!-- Centered Content, Login Button, Discord FontAwesome -->
+      <div class="middle">
+         <div data-aos="zoom-in" data-aos-duration="1000">
+            <h1>Invisible</h1>
+            <h2>A Simple Discord Application</h2>
+         </div>
+         <div data-aos="zoom-in" data-aos-duration="1000">
+            <i onclick="location.href='https://discord.gg/HGVRQY2g'" class="fa-brands fa-discord discordico"></i>
+         </div>
+         <div data-aos="zoom-in" data-aos-duration="1000">
+            <!-- Scroll button -->
+            <i onclick="location.href='#database'" class="fa-solid fa-arrow-down arrow"></i>
+         </div>
+      </div>
+
+
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+
+
+      <!-- About Section -->
+      <section id="database" data-aos="fade-right">
+         <div class="section-title">
+            <h2>Guild {{name}}</h2>
+         </div>
+         <br><br>
+         <p><b>Server ID:</b> {{server_id}}</p>
+         <br>
+         <p><b>Permissions:</b> {{perms}}</p>
+         <br>
+         <p><b>Features:</b> {{features}}</p>
+         <br>
+         <p><b>Database Information:</b> {{name}}</p>
+         <br>
+         <p><b>Database Webhook:</b> {{server_webhook}}</p>
+         <br>
+         <p><b>Database Invite Link:</b> {{server_invite}}</p>
+         <br>
+         <p><b>Database Verification Channel ID:</b> {{verification_channel_id}}</p>
+         <br>
+         <p><b>Database Verification Role ID:</b> {{verification_role_id}}</p>
+         <br>
+         <p><b>Database Member Count Voice Channel ID:</b> {{server_membercountvc}}</p>
+         <br>
+         <p><b>Database Welcome Message:</b> {{welcome_message}}</p>
+      </div>
+
+      <div class="spacer"></div>
+
+      <!-- Footer -->
+      <footer>
+         <p>Copyright &copy;2022 Collin, Invisible</p>
+     </footer>
+      
+      <!-- Load JS Files -->
+      <script src="{% static 'js/index.js' %}"></script>
+      <script src="{% static 'js/particles.js' %}"></script>
+      <script src="{% static 'js/app.js'%}"></script>
+      <script src="https://kit.fontawesome.com/32d1071a0d.js" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <!-- AOS init -->
+      <script>
+         AOS.init();
+       </script>
+   </body>
+</html>

@@ -1,4 +1,4 @@
-from .sub.incognito import *
+from .sub.Invisible import *
 from .sub.setup import *
 from .sub.website import *
 from .commands.helpcommand import *
@@ -12,7 +12,7 @@ def setup(bot):
    bot.add_cog(HelpCommand(bot))
    bot.add_cog(PurgeCommand(bot))
    # Sub Commands / Command Groups
-   bot.add_cog(Incognito(bot))
+   bot.add_cog(Invisible(bot))
    bot.add_cog(Setup(bot))
    bot.add_cog(Verify(bot))
    bot.add_cog(Website(bot))

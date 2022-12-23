@@ -1,0 +1,107 @@
+<!-- Load Content, css -->
+<!DOCTYPE html>
+<!-- Loading the static content from settings.py -->
+{% load static %}
+<html>
+   <head>
+      <!-- initializing -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Invisible</title>
+      <meta name="description" content="Invisible">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Loading CSS -->
+      <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   </head>
+   <body>
+      <!-- Particles.JS Particles -->
+      <div id="particles-js">
+      </div>
+
+      <!-- Navigation -->
+      <nav>
+         <div class="logo">
+            <h4>Invisible</h4>
+         </div>
+         <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#contact">Contact</a></li>
+         </ul>
+      </nav>
+         
+      <!-- Centered Content, Login Button, Discord FontAwesome -->
+      <div class="middle">
+         <div data-aos="zoom-in" data-aos-duration="1000">
+            <h1>Invisible</h1>
+            <h2>A Simple Discord Application</h2>
+         </div>
+         <div data-aos="zoom-in" data-aos-duration="1000">
+            <i onclick="location.href='https://discord.gg/HGVRQY2g'" class="fa-brands fa-discord discordico"></i>
+         </div>
+         <div data-aos="zoom-in" data-aos-duration="1000">
+            <form method="POST" action="login">
+               {% csrf_token %}
+               <button class="btn-main">Login</button>
+            </form> 
+            <!-- Scroll button -->
+            <i onclick="location.href='#about'" class="fa-solid fa-arrow-down arrow"></i>
+         </div>
+      </div>
+
+
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+
+
+      <!-- About Section -->
+      <section id="about" data-aos="fade-right" data-aos-duration="2000">
+         <div class="section-title">
+            <h2>About</h2>
+         </div>
+         <p>
+            This project was started on 11/2/22, It was originally just starting a discord bot, but I wanted to make a web dashboard type of thing, and I also wanted to learn Django, and more 
+            about backends in html and how they work, how to make them.
+         </p>
+      </div>
+
+      <div class="spacer"></div>
+
+      <!-- Contact Section -->
+      <section id="contact" data-aos="fade-left" data-aos-duration="2000">
+         <div class="section-title">
+            <h2>Contact</h2>
+         </div>
+         <p>Join the Discord(https://discord.gg/tSwMrkneyX) to chat or just add me at Collin#2397</p>
+      </div>
+
+      <div class="spacer"></div>
+
+      <!-- Price/Pricing Section -->
+      <section id="pricing" data-aos="fade-right" data-aos-duration="2000">
+         <div class="section-title">
+            <h2>Pricing</h2>
+         </div>
+         <p>I am able to make you a website (backend of course) with django@railway, add me on discord: Collin#2397<br>The starter plan would be 5$/month on railway, and a domain which could range but shouldnt be anything over 30$/year, but I would make the website first, then you would create the railway account, pay for the subscription and I could set everything else up.</p>
+      </div>
+
+      <div class="spacer"></div>
+
+      <!-- Footer -->
+      <footer>
+         <p>Copyright &copy;2022 Collin, Invisible</p>
+     </footer>
+      
+      <!-- Load JS Files -->
+      <script src="{% static 'js/index.js' %}"></script>
+      <script src="{% static 'js/particles.js' %}"></script>
+      <script src="{% static 'js/app.js'%}"></script>
+      <script src="https://kit.fontawesome.com/32d1071a0d.js" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <!-- AOS init -->
+      <script>
+         AOS.init();
+       </script>
+   </body>
+</html>

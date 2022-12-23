@@ -6,19 +6,19 @@ from utils.color import color
 global starttime
 starttime = disnake.utils.utcnow()
 
-class Incognito(commands.Cog):
+class Invisible(commands.Cog):
 
    def __init__(self, bot):
       self.bot = bot
    
    @commands.slash_command(
-      name="incognito",
+      name="Invisible",
       description="uptime"
    )
-   async def incognito(self, interaction):
+   async def Invisible(self, interaction):
       pass
    
-   @incognito.sub_command(
+   @Invisible.sub_command(
       name="uptime",
       description="displays the bot uptime",
    )

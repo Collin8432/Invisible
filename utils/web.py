@@ -118,7 +118,7 @@ def exchangeCode(code: str) -> tuple:
       "client_secret": os.environ.get("DISCORDSECRET"),
       "grant_type": "authorization_code",
       "code": code,
-      "redirect_uri": "https://incognitobot.ga/admin/discordoauth",
+      "redirect_uri": "https://Invisiblebot.ga/admin/discordoauth",
       "scope": "identify guild"
    }
    headers = {

@@ -49,9 +49,9 @@ class Verify(commands.Cog):
          image.text((75,0), "How to verify", font=font)
          image.text((65, 30), "Enter this code:", font=font)
          image.text((85, 60), FileName, font=font)
-         img.save(f"discordbot/verify/incognito{FileName}.png")
+         img.save(f"discordbot/verify/Invisible{FileName}.png")
          
-         await interaction.send(file=disnake.File(f"discordbot/verify/incognito{FileName}.png"))
+         await interaction.send(file=disnake.File(f"discordbot/verify/Invisible{FileName}.png"))
          await self.Checker(filename=FileName)
          
          verifyrole = get_discordserver(data="verificaiton_role_id", server_id=interaction.guild.id)
@@ -65,6 +65,6 @@ class Verify(commands.Cog):
                timestamp=disnake.utils.utcnow()
          )
          embed.set_footer(
-               text=f"Incognito Verification"
+               text=f"Invisible Verification"
             )
          await interaction.send(embed=embed)

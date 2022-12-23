@@ -1,4 +1,4 @@
-#!C:\Users\astro\Desktop\Important\GitProj\discordwebflask\IncognitoBot-Flask\venv\Scripts\python.exe
+#!C:\Users\astro\Desktop\Important\GitProj\discordweb-django\IncognitoBot-Django\venv\Scripts\python.exe
 
 # $Id: rst2xetex.py 8956 2022-01-20 10:11:44Z milde $
 # Author: Guenter Milde
