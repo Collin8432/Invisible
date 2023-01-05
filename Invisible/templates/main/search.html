@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+      <div class="spacer"></div>
+
+      <div class="middle">
+         <i onclick="location.href='#results'" class="fa-solid fa-arrow-down arrow"></i>
+      </div>
+
+      <!-- Search Result Section -->
+      <div class="spacer"></div>
+      <section id="results" class="card">
+         <a href="{{href}}">Results</a>
+         <p>{{name}}: {{description}}</p>
+      </section>
+
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+
+
+{% endblock %}

@@ -118,13 +118,14 @@ def exchangeCode(code: str) -> tuple:
       "client_secret": os.environ.get("DISCORDSECRET"),
       "grant_type": "authorization_code",
       "code": code,
-      "redirect_uri": "https://Invisiblebot.ga/admin/discordoauth",
+      # "redirect_uri": "https://Invisiblebot.ga/admin/discordoauth",
+      "redirect_uri": "http://127.0.0.1:8000/admin/discordoauth",
       "scope": "identify guild"
    }
    headers = {
       'Content-Type': 'application/x-www-form-urlencoded'
    }
-   response = requests.post("https://discord.com/api/v10/oauth2/token", data=data, headers=headers)
+   response = requests.post("https://discord.com/api/v10/oauth2/token", data=data, headers=headers) #ignore
    credentials = response.json()
    access_token = credentials["access_token"]
    response = requests.get("https://discord.com/api/v10/users/@me/guilds", headers={
@@ -133,8 +134,37 @@ def exchangeCode(code: str) -> tuple:
    resp = response.json()
    return resp, access_token
 
+def exchangeCodeChat(code: str) -> tuple:
+   data = {
+      "client_id": os.environ.get("DISCORDCLIENTID"),
+      "client_secret": os.environ.get("DISCORDSECRET"),
+      "grant_type": "authorization_code",
+      "code": code,
+      # "redirect_uri": "https://Invisiblebot.ga/chat",
+      "redirect_uri": "http://127.0.0.1:8000/chat",
+      "scope": "identify guild"
+   }
+   headers = {
+      'Content-Type': 'application/x-www-form-urlencoded'
+   }
+   response = requests.post("https://discord.com/api/v10/oauth2/token", data=data, headers=headers)
+   credentials = response.json()
+   access_token = credentials["access_token"]
+   response = requests.get("https://discord.com/api/v10/users/@me", headers={
+      "Authorization": f"Bearer {access_token}"
+   })
+   resp = response.json()
+   return resp, access_token
+
 def getServers(cookie) -> dict:
    response = requests.get("https://discord.com/api/v10/users/@me/guilds", headers={
+      "Authorization": f"Bearer {cookie}"
+   })
+   resp = response.json()
+   return resp
+
+def getSelfUser(cookie) -> dict:
+   response = requests.get("https://discord.com/api/v10/users/@me", headers={
       "Authorization": f"Bearer {cookie}"
    })
    resp = response.json()

@@ -7,11 +7,11 @@
    width: 100%;
    position: fixed;
    top: 5%;
+   z-index: -1;
    overflow-y: hidden;
-
 }
 
-/* Hiding Overflow */
+/* Hiding Overflow ECT*/
 * {
    overflow-x: hidden;
    margin: 0;
@@ -22,7 +22,6 @@
 /* Logo */
 .logo {
    color: transparent;
-   -webkit-text-stroke: 1px #FF5733;
    text-transform: uppercase;
    letter-spacing: 5px;
    font-size: 20px;
@@ -50,14 +49,61 @@ nav a {
 }
 
 nav a:hover {
-	cursor: pointer;
+   cursor: pointer;
    color: #fff;
+}
+
+.search-box {
+   border-radius: 40px;
+   height: 40px;
+   padding: 10px;
+   overflow: hidden;
+}
+
+.search-box:hover {
+   background: #FF5733;
+}
+
+.search-box:hover > .searchbox{
+   width: 240px;
+   top: 50px;
+   border-radius: 40px;
+}
+.search-box:hover > .search-btn{
+  background: #fff;
+}
+
+.search-btn{
+   color: #e84118;
+   float: right;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   background: #000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: 0.4s;
+   text-decoration: none;
+}
+
+.searchbox {
+   color: #fff;
+   border: none;
+   background: none;
+   outline: none;
+   float: left;
+   padding: 0 15px;
+   font-size: 16px;
+   line-height: 40px;
+   width: 0px;
+   transition: 1s ease-in-out;   
 }
 
 /* Body/Background */
 body {
    font-family: 'Josefin Sans', sans-serif;
-   background-color: #131318;
+   background-color: #000;
    overflow: hidden;
 }
 
@@ -71,7 +117,7 @@ body {
 }
 
 .arrow {
-   margin-top: 20%;
+   margin-bottom: 15%;
    color: #FF5733;
 }
 
@@ -84,19 +130,27 @@ body {
    width: 100%;
    align-items: center;
    text-align: center;
-   padding: 70px 0;
+   padding: 10px 0;
    overflow-y: hidden;
 }
 
-.middle h1 { 
-   color: #FF5733;
-   font-weight: bold;
-   padding: 15px;
+/*  Main  */
+.main {
+   margin-left: 5%;
+   margin-top: 10%;
+   animation: fadein-slideright 1s ease-in-out;
+
 }
 
-.middle h2 {
+.main h1 {
+   display: inline;
    color: #FF5733;
-   padding: 15px;
+   font-size: 8rem;
+}
+
+.main h2 {
+   color: #FF5733;
+   font-size: 3rem;
 }
 
 /* Spacing */
@@ -109,23 +163,6 @@ body {
 }
 
 /* Sections */
-section {
-   height: 100%;
-   margin: auto;
-   max-width: 90%;
-}
-
-section p {
-   padding: 30px 0;
-   color: #fff;
-   text-align: center;
-}
-
-section button {
-   position: absolute;
-   left: 47%;
-}
-
 .section-title {
    text-align: center;
    color: #FF5733;
@@ -138,14 +175,14 @@ section button {
    margin-left: 5%;
 }
 
-.database-card {
+.card {
    min-height: 500px;
    overflow-y: hidden;
    margin-left: 100px;
    margin-right: 100px;
 }
 
-.database-card a {
+.card a {
    max-width: 45%;
    float: left;
    font-weight: bold;
@@ -156,11 +193,11 @@ section button {
    text-decoration: none;
 }
 
-.database-card a:hover {
+.card a:hover {
    color: #fff;
 }
 
-.database-card img {
+.card img {
    width: 256px;
    height: 256px;
    float: right;
@@ -168,6 +205,28 @@ section button {
    clear: middle;
    margin-top: 200px;
    padding: 0 20px;
+}
+
+.card p {
+   color: #fff;
+   width: 512px;
+   height: 256px;
+   float: right;
+   display: flex;
+   clear: middle;
+   margin-top: 200px;
+   padding: 0 20px;
+}
+
+.database {
+   color: #fff;
+   text-align: center;
+}
+
+/* Chat */
+.message {
+   color: #fff;
+   text-align: center;
 }
 
 /* Footer */
@@ -182,23 +241,92 @@ footer {
    width: 100%;
 }
 
-/* Button */
-.btn-main {
-   border-radius: 75px;
-   background-color: #FF5733;
-   color: #fff;
-   border: 2px solid #FF5733;
-   width: 5%;
-   font-weight: bold;
-   padding: 10px 10px;
-   margin-top: 15px;
-   margin-left: 5px;
-   margin-right: 5px;
-   transition: 0.3s ease-in-out;
+/* effect thing */
+.effect {
+   text-align: center;
+   position: absolute;
+   margin-left: 5%;
+
 }
 
-.btn-main:hover {
-   background-color: #fff;
+.effect:nth-child(1) {
+   color: #fff;
+}
+
+.effect:nth-child(2) {
    color: #FF5733;
-   cursor: pointer;
+   animation: flow 3s ease-in-out infinite;
+}
+
+@keyframes flow {
+   0%, 100% {
+      clip-path: polygon(2% 49%, 8% 55%, 16% 58%, 25% 62%, 35% 55%, 44% 50%, 55% 50%, 63% 53%, 71% 57%, 77% 59%, 85% 55%, 91% 47%, 100% 40%, 100% 100%, 0 100%);
+   }
+   50% {
+      clip-path: polygon(2% 49%, 10% 48%, 19% 51%, 25% 48%, 36% 66%, 51% 55%, 58% 46%, 66% 47%, 69% 47%, 79% 63%, 90% 64%, 97% 57%, 100% 50%, 100% 100%, 0 100%);
+   }
+}
+
+.slideup.in-viewport {
+   animation: fadein-slideup 1s ease-in-out;
+}
+
+.slidedown.in-viewport {
+   animation: fadein-slidedown 1s ease-in-out;
+}
+
+.slideright.in-viewport {
+   animation: fadein-slideright 1s ease-in-out;
+}
+
+.slideleft.in-viewport {
+   animation: fadein-slideleft 1s ease-in-out;
+}
+
+.in-viewport.slidein {   
+   animation: fadein-slideup 1s ease-in-out;
+}
+
+@keyframes fadein-slideup {
+   0% {
+      opacity: 0;
+      transform: translate(0, 300px);
+   }
+   100% {
+      opacity: 1;
+      transform: translate(0px, 0px)
+   }
+}
+
+@keyframes fadein-slideright {
+   0% {
+      opacity: 0;
+      transform: translate(-300px, 0);
+   }
+   100% {
+      opacity: 1;
+      transform: translate(0px, 0px)
+   }
+}
+
+@keyframes fadein-slideleft {
+   0% {
+      opacity: 0;
+      transform: translate(300px, 0);
+   }
+   100% {
+      opacity: 1;
+      transform: translate(0px, 0px)
+   }
+}
+
+@keyframes fadein-slidedown {
+   0% {
+      opacity: 0;
+      transform: translate(0, -300px);
+   }
+   100% {
+      opacity: 1;
+      transform: translate(0px, 0px)
+   }
 }

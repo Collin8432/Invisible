@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+        <div class="spacer"></div>
+
+
+        {% for message in messages %}
+            <div class="message">
+                <p><b>{{message.Author}} {{message.Discriminator}}<b> says: {{message.Content}}</p>
+            </div>
+        {% endfor %}
+
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+{% endblock %}
